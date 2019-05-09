@@ -1,4 +1,4 @@
-@import '../../style/mixins/hairline.less';
+@import '../../style/themes/default.less';
 
 @list-color: #888;
 @list-item-hover-color: #f8f8f8;
@@ -11,7 +11,7 @@
     padding-left: 16px;
     font-size: 15px;
     line-height: 1.4;
-    color: @color-text-title;
+    color: #333;
     &-hover {
       // hover 样式
       background-color: @list-item-hover-color;
@@ -77,9 +77,6 @@
     &-empty {
       visibility: hidden;
     }
-  }
-  &-line-bottom {
-    .hairline('bottom');
   }
   // 子元素垂直对齐
   &-top {

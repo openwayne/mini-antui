@@ -16,6 +16,5 @@
 			<slot name="extra" />
 		</view>
 		<view a:if={{arrow}} class="am-list-arrow" />
-		<view class="am-list-line-bottom" />
 	</view>
 </view>

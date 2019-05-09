@@ -1,13 +1,18 @@
+@height: 80px;
+
 .am-swipe {
   position: relative;
   overflow: hidden;
+  height: @height;
 
   &-content {
     position: relative;
     transition: all 250ms;
+    height: @height;
   }
 
   &-right {
+    height: @height;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -16,6 +21,7 @@
   }
 
   &-btn {
+    height: @height;
     padding: 0 14px;
     justify-content: center;
     align-items: center;
@@ -32,6 +38,7 @@
   }
   //=== v2 ===
   &-movable {
+    height: @height;
 
     &-area {
       position: absolute;
@@ -45,4 +52,5 @@
 
 .am-swiping .am-swipe-content {
   transition: none;
+  height: @height;
 }

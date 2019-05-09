@@ -1,10 +1,10 @@
 {
-  "name": "mini-antui",
-  "version": "0.4.23",
-  "description": "小程序版AntUI",
+  "name": "mini-antui-fix",
+  "version": "0.0.10",
+  "description": "小程序版AntUI-按需fix版本",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ant-mini-program/mini-antui.git"
+    "url": "git@github.com:openwayne/mini-antui.git"
   },
   "files": [
     "es"
