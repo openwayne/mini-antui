@@ -1,4 +1,28 @@
-# 0.4.22
+## 0.4.27
+
+`2019-05-24`
+
+- **Bug Fix**
+  - 修复`collapse`无法在钉钉小程序上展开的问题([#272](https://github.com/ant-mini-program/mini-antui/issues/272))
+  - 修复`stepper` readOnly状态下按钮点击无效的问题
+
+## 0.4.26
+
+`2019-05-10`
+
+- **Bug Fix**
+  - 修复`vtabs`的语法错误([#264](https://github.com/ant-mini-program/mini-antui/issues/264))
+  - 修复`am-icon`默认class为undefined的问题([#261](https://github.com/ant-mini-program/mini-antui/issues/261))
+  - 修复`list-item`数字和英文不换行的问题
+
+## 0.4.25
+
+`2019-04-24`
+
+- **Bug Fix**
+  - 修复`badge`类型为text的情况下，文字换行的问题
+
+## 0.4.23
 
 `2019-04-11`
 
@@ -6,7 +30,7 @@
   - `notice`样式写明box-sizing类型避免开发者全局css属性影响组件样式
   - `modal`新增`disableScroll`属性
 
-# 0.4.22
+## 0.4.22
 
 `2019-03-29`
 
@@ -25,7 +49,7 @@
 `2019-03-22`
 
 - **Feature**
-  - 新增`collapase`组件
+  - 新增`collapse`组件
   - `grid`支持slot
 
 - **Enhancement**
