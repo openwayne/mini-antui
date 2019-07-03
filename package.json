@@ -1,18 +1,13 @@
 {
   "name": "mini-antui-fix",
-  "version": "0.0.10",
+  "version": "0.0.19",
   "description": "小程序版AntUI-按需fix版本(0.4.27)",
   "repository": {
     "type": "git",
     "url": "git@github.com:openwayne/mini-antui.git"
   },
-  "files": [
-    "es"
-  ],
-  "keywords": [
-    "antui",
-    "mini-program"
-  ],
+  "files": ["es"],
+  "keywords": ["antui", "mini-program"],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -43,20 +38,10 @@
     "pub": "npm run build && node scripts/pub.js",
     "dev": "yarn && node scripts/compiler.js"
   },
-  "pre-commit": [
-    "lint-staged"
-  ],
+  "pre-commit": ["lint-staged"],
   "lint-staged": {
-    "*.ts": [
-      "eslint --ext .ts",
-      "git add"
-    ],
-    "*.js": [
-      "eslint",
-      "git add"
-    ],
-    "*.less": [
-      "stylelint --syntax less"
-    ]
+    "*.ts": ["eslint --ext .ts", "git add"],
+    "*.js": ["eslint", "git add"],
+    "*.less": ["stylelint --syntax less"]
   }
 }

@@ -1,7 +1,7 @@
 
-<view a:if={{!useV2}} class="am-swipe {{swiping ? 'am-swiping' : ''}} {{className}}">
+<view a:if={{!useV2}} class="am-swipe {{className}}">
   <block a:if="{{right.length > 0}}">
-    <view class="am-swipe-right am-swipe-right-{{$id}}">
+    <view class="am-swipe-right am-swipe-right-{{$id}}" style="visibility: {{ leftPos == 0 ? 'hidden' : 'visible' }}">
       <block a:for="{{right}}">
         <view
           class="am-swipe-btn am-swipe-btn-{{item.type}}"
@@ -21,20 +21,20 @@
     onTouchEnd="onSwipeEnd"
     catchTouchMove="onSwipeMove"
     data-type="content"
-    style="-webkit-transform: translateX({{leftPos}}px); transform: translateX({{leftPos}}px);"
+    style="-webkit-transform: translate3d({{leftPos}}px, 0, 0); transform: translate3d({{leftPos}}px, 0, 0);"
   >
     <slot />
   </view>
 </view>
 <view
   class="am-swipe {{className}}"
-  style="width: {{viewWidth}}px; height: {{height}}px;"
+  style="width: {{viewWidth}}px;"
   key="{{key}}"
   a:else
 >
   <movable-area
     class="am-swipe-movable-area"
-    style="width: {{ viewWidth + actionWidth}}px;height: {{height}}px;left: -{{actionWidth}}px;"
+    style="width: {{ viewWidth + actionWidth}}px;height: {{height}};left: -{{actionWidth}}px;"
   >
     <block a:if="{{right.length > 0}}">
       <view class="am-swipe-right am-swipe-right-{{$id}}" style="right: 0;">
@@ -56,7 +56,7 @@
       onTouchStart="onSwipeStart"
       direction="horizontal"
       data-type="content"
-      style="width: {{viewWidth}}px;height:{{height}}px; transition: {{transitionVal}};"
+      style="width: {{viewWidth}}px;height:{{height}}; transition: {{transitionVal}};"
       x="{{x}}"
       onChange="onChange"
       onChangeEnd="onChangeEnd"
