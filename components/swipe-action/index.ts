@@ -1,5 +1,4 @@
 const { windowWidth } = my.getSystemInfoSync();
-const isV2 = my.canIUse('movable-view.onTouchStart');
 
 Component({
   data: {
@@ -21,7 +20,7 @@ Component({
   },
   didMount() {
     const { enableNew } = this.props;
-    const useV2 = isV2 && enableNew;
+    const useV2 = enableNew;
     this.btnWidth = 0;
     this.setData({
       useV2,
@@ -51,22 +50,45 @@ Component({
 
     if (!useV2) {
       this.setBtnWidth();
+    } else {
+      this.updateWidth(holdSwipe);
     }
   },
   methods: {
-    setBtnWidth() {
+    updateWidth() {
       my.createSelectorQuery()
         .select(`.am-swipe-right-${this.$id}`)
         .boundingClientRect()
         .exec(ret => {
           this.btnWidth = (ret && ret[0] && ret[0].width) || 0;
-          if (isV2 && this.props.enableNew) {
-            this.setData({
+          if (this.props.enableNew) {
+            const data = {
               actionWidth: this.btnWidth,
-              x: this.btnWidth,
-            });
+            };
+            data.x = this.btnWidth;
+            this.setData(data);
           }
         });
+    },
+    setBtnWidth(needUpdateX = true) {
+      return new Promise(resolve => {
+        my.createSelectorQuery()
+          .select(`.am-swipe-right-${this.$id}`)
+          .boundingClientRect()
+          .exec(ret => {
+            this.btnWidth = (ret && ret[0] && ret[0].width) || 0;
+            if (this.props.enableNew) {
+              const data = {
+                actionWidth: this.btnWidth,
+              };
+              if (needUpdateX) {
+                data.x = this.btnWidth;
+              }
+              this.setData(data);
+            }
+            resolve();
+          });
+      });
     },
     onSwipeTap() {
       if (!this.data.swiping) {
@@ -171,6 +193,7 @@ Component({
       }
     },
     onChangeEnd(e) {
+      console.log('onChangeEnd');
       const { actionWidth } = this.data;
       const { x } = e.detail;
       this.setData(
@@ -186,6 +209,7 @@ Component({
       );
     },
     done() {
+      console.log('done');
       this.setData(
         {
           holdSwipe: true,
@@ -198,6 +222,7 @@ Component({
       );
     },
     onItemClick(e) {
+      console.log('onItemClick');
       const { onRightItemClick } = this.props;
       const { holdSwipe } = this.data;
       if (onRightItemClick) {
@@ -212,6 +237,7 @@ Component({
 
       if (!this.data.swiping && holdSwipe === false) {
         setTimeout(() => {
+          console.log('onItemClick- setTimeout');
           this.setData({
             leftPos: 0,
             swiping: false,

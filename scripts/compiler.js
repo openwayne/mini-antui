@@ -50,9 +50,9 @@ gulp.start('build');
 
 if (!isProduction) {
   extTypes.forEach((type) => {
-    const watcher = gulp.watch(`${src}/**/*` + type, [type]);
+    const watcher = gulp.watch(`${src}/**/*${type}`, [type]);
     watcher.on('change', (event) => {
-      console.log('File ' + event.path + ' was ' + event.type);
+      console.log(`File ${event.path} was ${event.type}`);
     });
   });
 }
