@@ -4,7 +4,7 @@
     {{ text.toString().length > 1 ? 'am-badge-double' : ''}}"
     a:if="{{!dot}}">
     <view class="am-badge-text-padding">{{typeof text === 'number' && text > overflowCount ? overflowCount + '+' : text }}</view>
-    <view class="am-badge-text-inner">{{typeof text === 'number' && text > overflowCount ? overflowCount + '+' : text }}</view>
+    <view class="am-badge-text-inner {{fontClassName}}">{{typeof text === 'number' && text > overflowCount ? overflowCount + '+' : text }}</view>
   </view>
   <view class="am-badge-text is-dot" a:if="{{dot}}"></view>
   <slot name="inner" />

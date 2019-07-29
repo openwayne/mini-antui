@@ -4,5 +4,6 @@ Component({
     overflowCount: 99,
     text: '',
     dot: false,
+    fontClassName: '',
   },
 });
